@@ -23,12 +23,6 @@ class EmpleadosController extends Controller
         if ($cargo = $request->input('cargo')) {
             $query->where('cargo', 'like', "%$cargo%");
         }
-        if ($fecha_ingreso = $request->input('fecha_ingreso')) {
-            $query->whereDate('fecha_ingreso', $fecha_ingreso);
-        }
-        if ($fecha_salida = $request->input('fecha_salida')) {
-            $query->whereDate('fecha_salida', $fecha_salida);
-        }
         if (!is_null($en_planilla = $request->input('en_planilla'))) {
             $query->where('en_planilla', (bool)$en_planilla);
         }
@@ -52,13 +46,6 @@ class EmpleadosController extends Controller
     {
         $data = $request->all();
 
-     
-        if (isset($data['fecha_ingreso'])) {
-            $data['fecha_ingreso'] = date('Y-m-d', strtotime($data['fecha_ingreso']));
-        }
-        if (isset($data['fecha_salida'])) {
-            $data['fecha_salida'] = date('Y-m-d', strtotime($data['fecha_salida']));
-        }
         if (isset($data['en_planilla'])) {
             $data['en_planilla'] = (bool)$data['en_planilla'];
         }
@@ -75,12 +62,6 @@ class EmpleadosController extends Controller
         }
 
         $data = $request->all();
-        if (isset($data['fecha_ingreso'])) {
-            $data['fecha_ingreso'] = date('Y-m-d', strtotime($data['fecha_ingreso']));
-        }
-        if (isset($data['fecha_salida'])) {
-            $data['fecha_salida'] = date('Y-m-d', strtotime($data['fecha_salida']));
-        }
         if (isset($data['en_planilla'])) {
             $data['en_planilla'] = (bool)$data['en_planilla'];
         }
@@ -99,13 +80,3 @@ class EmpleadosController extends Controller
         return response()->json(['message' => 'Empleado eliminado'], 200);
     }
 }
-
-
-
-
-    
-
-    
-
-
-

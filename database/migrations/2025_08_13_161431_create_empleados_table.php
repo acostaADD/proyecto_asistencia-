@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('dni', 8)->unique(); // DNI con longitud fija de 8
+            $table->string('dni', 8)->unique(); 
             $table->string('name');
             $table->string('apellido')->nullable();
             $table->string('cargo');
-            $table->date('fecha_ingreso'); // Fecha en formato date
-            $table->date('fecha_salida')->nullable(); // Puede ser null si no ha salido
-            $table->boolean('en_planilla')->nullable(); // Verdadero/Falso
+            $table->boolean('en_planilla')->nullable(); 
             $table->string('descanso_fijo');
             $table->string('fotografia');
             $table->unsignedBigInteger('empresa_id')->nullable();
@@ -27,7 +25,6 @@ return new class extends Migration
 
             $table->timestamps();
         });
-
     }
 
     public function down(): void

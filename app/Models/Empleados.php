@@ -16,8 +16,6 @@ class Empleados extends Model
         'name',
         'apellido',
         'cargo',
-        'fecha_ingreso',
-        'fecha_salida',
         'en_planilla',
         'descanso_fijo',
         'fotografia',
